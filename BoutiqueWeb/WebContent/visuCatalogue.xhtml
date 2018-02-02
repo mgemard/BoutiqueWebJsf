@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/core">
+
+<ui:composition template="templateBoutique.xhtml">
+	<ui:define name="title">
+	    Catalogue
+	</ui:define>
+	<ui:define name="contenu">
+		<script>
+			welcome("#{clientAuthentifie.firstname} #{clientAuthentifie.lastname}");
+		</script>
+	    Affichage du catalogue d'articles
+	    <br />
+
+		<h:dataTable border="1" value="#{catalogue}" var="article">
+			<h:column id="column1">
+				<p:facet name="header">
+					<h:outputText value="Nom"></h:outputText>
+				</p:facet>
+				<h:outputText value="#{article.nom}"></h:outputText>
+			</h:column>
+			<h:column id="column2">
+				<p:facet name="header">
+					<h:outputText value="Description"></h:outputText>
+				</p:facet>
+				<h:outputText value="#{article.description}"></h:outputText>
+			</h:column>
+            <h:column id="column3">
+                <p:facet name="header">
+                    <h:outputText value="Prix"></h:outputText>
+                </p:facet>
+                <h:outputText value="#{article.prix}"></h:outputText>
+            </h:column>
+		</h:dataTable>
+	</ui:define>
+</ui:composition>
+</html>

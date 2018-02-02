@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fxs="http://java.sun.com/jsf/composite/mesComposants">
+
+<f:view>
+	<h:head>
+	</h:head>
+
+	<h:body>
+		<!-- <h:div
+			style="display: flex; justify-content: center; align-items: center;"> -->
+
+		<!-- <h:form id="form1">
+				<h:panelGrid id="panel" columns="2" border="1" cellpadding="10"
+					cellspacing="1" style="margin:auto">
+
+					<f:facet name="header">
+						<h:outputText value="Login" />
+					</f:facet>
+					<h:outputLabel value="Username" />
+					<h:inputText value="#{beanLogin.login}" required="true" />
+					<h:outputLabel value="Password" />
+					<h:inputSecret value="#{beanLogin.password}" required="true" />
+
+					<f:facet name="footer">
+						<h:panelGroup style="display:block; text-align:center">
+							<h:commandButton id="submit" value="Valider"
+								action="#{beanLogin.validate(clientList)}" />
+						</h:panelGroup>
+					</f:facet>
+				</h:panelGrid>
+			</h:form> -->
+
+		<fxs:authentification label1="Username" label2="Password" label3="Valider">
+		</fxs:authentification>
+
+		<h:outputLabel binding="#{beanLogin.info}" />
+		<!-- </h:div> -->
+		<h:link value="Créer un compte" outcome="signup" />
+
+		<!-- 
+<ui:composition template="">
+    <ui:define name="header">
+        Add your header here or delete to use the default
+    </ui:define>
+    <ui:define name="content">
+        Add your content here or delete to use the default
+    </ui:define>
+    <ui:define name="footer">
+        Add your footer here or delete to use the default
+    </ui:define>
+</ui:composition>
+ -->
+
+	</h:body>
+</f:view>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:cc="http://java.sun.com/jsf/composite">
+
+
+<cc:interface>
+<cc:attribute name="label1" required="true"></cc:attribute>
+<cc:attribute name="label2" required="true"></cc:attribute>
+<cc:attribute name="label3" required="true"></cc:attribute>
+<cc:attribute name="action"></cc:attribute>
+</cc:interface>
+
+
+
+<cc:implementation>
+	<h:form id="form1">
+
+		<h:panelGrid id="panel" columns="2" border="1" cellpadding="10"
+			cellspacing="1" style="margin:auto">
+
+			<f:facet name="header">
+				<h:outputText value="Login" />
+			</f:facet>
+			<h:outputLabel value="#{cc.attrs.label1}" />
+			<h:inputText value="#{beanLogin.login}" required="true" />
+			<h:outputLabel value="#{cc.attrs.label2}" />
+			<h:inputSecret value="#{beanLogin.password}" required="true" />
+
+			<f:facet name="footer">
+				<h:panelGroup style="display:block; text-align:center">
+					<h:commandButton id="submit" value="#{cc.attrs.label3}"
+						action="#{beanLogin.validate(clientList)}" />
+				</h:panelGroup>
+			</f:facet>
+		</h:panelGrid>
+
+	</h:form>
+</cc:implementation>
+
+
+
+</html>

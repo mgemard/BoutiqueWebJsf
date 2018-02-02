@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<f:view>
+	<h:head>
+	</h:head>
+
+	<h:body>
+		<!-- <h:div
+			style="display: flex; justify-content: center; align-items: center;"> -->
+
+		<h:form id="form1">
+
+			<h:panelGrid id="panel" columns="3" border="1" cellpadding="10"
+				cellspacing="1" style="margin:auto">
+
+				<f:facet name="header">
+					<h:outputText value="Login" />
+				</f:facet>
+
+				<h:outputLabel value="Lastname" />
+				<h:inputText value="#{beanSignup.lastname}" id="lastnameTxt"
+					required="true" requiredMessage="Le nom est obligatoire">
+					<f:validateLength minimum="3"></f:validateLength>
+				</h:inputText>
+				<h:message for="lastnameTxt"></h:message>
+
+				<h:outputLabel value="Firstname" />
+				<h:inputText value="#{beanSignup.firstname}" id="firstnameTxt"
+					required="true" requiredMessage="Le prénom est obligatoire">
+					<f:validateLength minimum="3"></f:validateLength>
+				</h:inputText>
+				<h:message for="firstnameTxt"></h:message>
+
+				<h:outputLabel value="Age" />
+				<h:selectOneMenu id="ageList" value="#{beanSignup.age}">
+					<f:selectItem itemLabel="18 ans" itemValue="18"></f:selectItem>
+					<f:selectItem itemLabel="19 ans" itemValue="19"></f:selectItem>
+					<f:selectItem itemLabel="20 ans" itemValue="20"></f:selectItem>
+				</h:selectOneMenu>
+				<h:message for="ageList"></h:message>
+
+
+				<h:outputLabel value="Login" />
+				<h:inputText id="loginTxt" value="#{beanSignup.login}" required="true"
+					requiredMessage="L'identifiant est obligatoire">
+					<f:validateLength minimum="4" maximum="8"></f:validateLength>
+				</h:inputText>
+				<h:message for="loginTxt"></h:message>
+
+				<h:outputLabel value="Password" />
+				<h:inputSecret id="passwordTxt" value="#{beanSignup.password}"
+					required="true" requiredMessage="Le mot de passe est obligatoire">
+				</h:inputSecret>
+				<h:message for="passwordTxt"></h:message>
+
+				<h:outputLabel value="Genre" />
+				<h:selectOneRadio id="genderRadio" value="#{beanSignup.gender}">
+					<f:selectItem itemLabel="Homme" itemValue="1"></f:selectItem>
+					<f:selectItem itemLabel="Femme" itemValue="2"></f:selectItem>
+				</h:selectOneRadio>
+				<h:message for="genderRadio"></h:message>
+
+				<f:facet name="footer">
+					<h:panelGroup style="display:block; text-align:center">
+						<h:commandButton id="submit" value="Valider"
+							action="#{beanSignup.validate}" />
+						<h:commandButton id="cancel" value="Annuler"
+							action="#{beanSignup.cancel}" immediate="true"/>
+					</h:panelGroup>
+				</f:facet>
+			</h:panelGrid>
+
+		</h:form>
+		<h:outputLabel binding="#{beanSignup.info}" />
+		<!-- </h:div> -->
+
+	</h:body>
+</f:view>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fxs="http://java.sun.com/jsf/composite/mesComposants">
+
+<f:view>
+	<h:head>
+		<h:outputScript name="jsf.js" library="javax.faces" target="head" />
+	</h:head>
+
+	<h:body>
+		<!-- <h:div
+			style="display: flex; justify-content: center; align-items: center;"> -->
+
+		<h:form id="form1">
+			<h:panelGrid id="panel" columns="3" border="1" cellpadding="10"
+				cellspacing="1" style="margin:auto">
+
+				<f:facet name="header">
+					<h:outputText value="Ajouter un article" />
+				</f:facet>
+
+				<h:outputLabel value="Nom" />
+				<h:inputText value="#{ajoutArticleBean.nom}" required="true">
+					<f:ajax event="keyup" render="erreurNom"
+						listener="#{ajoutArticleBean.verification}"></f:ajax>
+				</h:inputText>
+				<h:outputLabel id="erreurNom" value="#{ajoutArticleBean.erreurNom}" />
+
+				<h:outputLabel value="Description" />
+				<h:inputText value="#{ajoutArticleBean.description}" required="true" />
+				<h:outputLabel value="#{ajoutArticleBean.erreurDescription}" />
+
+				<h:outputLabel value="Prix" />
+				<h:inputText value="#{ajoutArticleBean.prix}" required="true">
+					<f:ajax event="blur" render="@this"
+						listener="#{ajoutArticleBean.verifierPrix}"></f:ajax>
+				</h:inputText>
+				<h:outputLabel id="erreurPrix" value="#{ajoutArticleBean.erreurPrix}" />
+
+				<f:facet name="footer">
+					<h:panelGroup style="display:block; text-align:center">
+						<h:commandButton id="submit" value="Valider"
+							action="#{ajoutArticleBean.enregistrer}" />
+					</h:panelGroup>
+				</f:facet>
+			</h:panelGrid>
+		</h:form>
+
+
+		<h:outputLabel binding="#{beanLogin.info}" />
+		<!-- </h:div> -->
+		<h:link value="Créer un compte" outcome="signup" />
+
+		<!-- 
+<ui:composition template="">
+    <ui:define name="header">
+        Add your header here or delete to use the default
+    </ui:define>
+    <ui:define name="content">
+        Add your content here or delete to use the default
+    </ui:define>
+    <ui:define name="footer">
+        Add your footer here or delete to use the default
+    </ui:define>
+</ui:composition>
+ -->
+
+	</h:body>
+</f:view>
+</html>

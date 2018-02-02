@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<f:view>
+	<h:head>
+		<title><ui:insert name="title">
+		  Boutique web </ui:insert></title>
+
+		<h:outputStylesheet name="styleBoutique.css" library="css"></h:outputStylesheet>
+
+		<h:outputScript name="boutique.js" library="js"></h:outputScript>
+	</h:head>
+
+	<h:body>
+		<h:panelGroup rendered="#{not empty clientAuthentifie}">
+			<ui:insert name="top">
+				<div id="barre">
+					<div id="logo">
+						<h:graphicImage name="cart.png" library="images"></h:graphicImage>
+						<!-- <img src="resources/images/cart.png" /> -->
+					</div>
+					<div id="intitule">Boutique web jsf</div>
+					<div id="identification">
+						<h:outputText
+							value="#{clientAuthentifie.firstname} #{clientAuthentifie.lastname}"></h:outputText>
+					</div>
+					<div id="identification">
+						<h:form>
+							<h:commandLink>
+								<h:outputText value="Déconnection" action="#{loginBean.logout}"></h:outputText>
+							</h:commandLink>
+						</h:form>
+					</div>
+
+				</div>
+			</ui:insert>
+
+			<ui:insert name="contenu">
+Contenu par défault</ui:insert>
+
+			<ui:insert name="bottom">
+				<hr />
+				<div>(c) 2018</div>
+			</ui:insert>
+		</h:panelGroup>
+	</h:body>
+</f:view>
+
+</html>
